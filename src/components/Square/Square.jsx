@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { BeakerIcon } from "@heroicons/react/solid";
 const Square = ({ value, handleClick, row, col, isClicked }) => {
   return (
-    <div
+    <article
       onClick={() => handleClick(row, col)}
       className="border border-white
-                w-[100px] h-[100px] 
+                w-[200px] h-[200px] 
                 cursor-pointer
-                flex items-center justify-center"
+                flex items-center justify-center
+                "
     >
-      <div role="gridcell" className="font-bold text-4xl text-white">
+      <div role="gridcell" className="font-bold text-8xl text-white">
         {value}
       </div>
-    </div>
+    </article>
   );
 };
 

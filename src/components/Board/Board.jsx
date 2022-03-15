@@ -20,7 +20,15 @@ const Board = () => {
   }
   const player1 = new User("Player 1", "X", player1Score);
   const player2 = new User("Player 2", "O", player2Score);
-
+  const reset = () => {
+    if (winner) {
+      squareGenerator();
+      setWinner();
+      setXisNext(true);
+    } else {
+      return "";
+    }
+  };
   // Generates 3x3 grid
   const squareGenerator = () => {
     const grid = [];
@@ -81,8 +89,8 @@ const Board = () => {
   }, [winner]);
 
   return (
-    <div className="flex flex-col">
-      <h2 className="text-white font-semibold">Winner: {winner}</h2>
+    <div className="flex flex-col" onClick={() => reset()}>
+      <h2 className="text-white text-2xl font-semibold">Winner: {winner}</h2>
       {squares.grid.map((row, rowindex) => {
         return (
           <div key={rowindex} className="flex">
@@ -106,7 +114,7 @@ const Board = () => {
           </div>
         );
       })}
-      <div className="flex gap-36">
+      <div className="flex items-center justify-center gap-36">
         <Player name={player1.name} score={player1Score} xO={player1.xO} />
         <Player name={player2.name} score={player2Score} xO={player2.xO} />
       </div>
