@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { BeakerIcon } from "@heroicons/react/solid";
-const Square = ({ value, handleClick, row, col, isClicked }) => {
+import React from "react";
+
+const Square = ({ value, handleClick, row, col }) => {
   return (
     <article
       onClick={() => handleClick(row, col)}
